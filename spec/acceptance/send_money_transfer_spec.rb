@@ -1,7 +1,7 @@
 require File.expand_path(File.dirname(__FILE__) + '/acceptance_helper')
 
 feature "Send Money Transfer", %q{
-  In order for money to circulate  
+  In order for money to circulate
   As a banker
   I want my clients to send money transfers to other accounts
 } do
@@ -21,7 +21,7 @@ feature "Send Money Transfer", %q{
       fill_in "Amount", :with => 19
       click_button "Send money"
     end
-    
+
     a_request(:post, "banking-system.example.com").should_not have_been_made
 
     page.should have_content "Balance: $0"
@@ -44,7 +44,7 @@ feature "Send Money Transfer", %q{
     end
 
     a_request(:post, "banking-system.example.com/accounts/#{external_account_number}").
-      with(:body => {:from => source_account.uid, :amount => 19}.to_params).
+      with(:body => {:from => source_account.uid, :amount => 19}).
       should have_been_made
 
     page.should have_content "Balance: $0"

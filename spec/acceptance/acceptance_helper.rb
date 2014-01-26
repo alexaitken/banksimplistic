@@ -4,7 +4,7 @@ require 'capybara/rails'
 require 'webmock/rspec'
 
 RSpec.configure do |config|
-  config.include Capybara, :type => :acceptance
+  config.include Capybara::DSL, :type => :acceptance
 
   config.before(:each) do
     Ohm.flush

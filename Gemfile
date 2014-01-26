@@ -1,6 +1,6 @@
-source :rubygems
+source 'https://rubygems.org'
 
-gem 'rails', '3.0.0'
+gem 'rails', '3.2.16'
 
 gem 'uuidtools'
 gem 'ohm'
@@ -14,14 +14,15 @@ gem 'amqp',     :require => false
 
 gem 'ffi-rzmq', :require => false
 
+group :assets do
+  gem 'jquery-rails', '~> 3.0'
+end
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'steak'
   gem 'capybara'
   gem 'launchy'
-  gem 'SystemTimer',  :platform => :ruby_18
-  gem 'ruby-debug',   :platform => :ruby_18
-  gem 'ruby-debug19', :platform => :ruby_19
   gem 'webmock'
   gem 'foreman'
   gem 'thin'

@@ -1,12 +1,12 @@
-class BankCard
+class Client::BankCard
   include Entity
 
   attr_accessor :number
 
   def self.create(client_uid)
     card = self.new
-    card.apply_event :card_created, :number => generate_new_card_number, 
-                                    :client_uid => client_uid 
+    card.apply_event :card_created, :number => generate_new_card_number,
+                                    :client_uid => client_uid
     card
   end
 
@@ -21,7 +21,7 @@ class BankCard
 private
 
   def self.generate_new_card_number
-    4.times.map{ 4.times.map { rand(9) }.join }.join("-") 
+    4.times.map{ 4.times.map { rand(9) }.join }.join("-")
   end
 
   def is_active?
